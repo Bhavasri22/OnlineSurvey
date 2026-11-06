@@ -9,22 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Test backend
 app.get("/", (req, res) => {
     res.send("Feedback Backend is Working!");
 });
 
-// Receive and save frontend data
 app.post("/feedback", async (req, res) => {
     try {
-        console.log("\n========== NEW FEEDBACK ==========");
-        console.log("Name:", req.body.name);
-        console.log("Reason:", req.body.reason);
-        console.log("Opinion:", req.body.opinion);
-        console.log("Learned:", req.body.learned);
-        console.log("Suggestions:", req.body.suggestions);
-        console.log("==================================");
-
         const feedback = new Feedback(req.body);
         const savedFeedback = await feedback.save();
 
@@ -33,15 +23,12 @@ app.post("/feedback", async (req, res) => {
             data: savedFeedback
         });
     } catch (error) {
-        console.error("Error saving feedback:", error.message);
-
         res.status(400).json({
             message: error.message
         });
     }
 });
 
-// Show all saved feedback
 app.get("/feedback", async (req, res) => {
     try {
         const feedbacks = await Feedback.find().sort({
@@ -56,15 +43,17 @@ app.get("/feedback", async (req, res) => {
     }
 });
 
-// Start backend after database connects
+const PORT = process.env.PORT || 5000;
+
 dbConnection
     .then(() => {
         console.log("MongoDB Connected Successfully!");
 
-        app.listen(5000, () => {
-            console.log("Backend running on http://localhost:5000");
+        app.listen(PORT, () => {
+            console.log(`Backend running on port ${PORT}`);
         });
     })
     .catch((error) => {
         console.error("MongoDB Connection Failed:", error.message);
+        process.exit(1);
     });
