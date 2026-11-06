@@ -1,0 +1,111 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #253047;
+}
+
+.container {
+    max-width: 650px;
+    width: 92%;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #2447a8;
+    font-size: 34px;
+    margin: 5px 0 30px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d5dbea;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #253047;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4263d5;
+    box-shadow: 0 0 4px rgba(66, 99, 213, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 5px;
+    background: #3156c9;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2444a7;
+}
+
+.message {
+    text-align: center;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #3156c9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
